@@ -14,10 +14,10 @@ app.use(
 );
 
 // importing routes and using
-import city from "./routes/cityRoutes.js";
-import hall from "./routes/hallRoutes.js";
+import city from "./routes/cityRoute.js";
+import hall from "./routes/hallRoute.js";
 import payment from "./routes/paymentRoutes.js";
-import review from "./routes/reviewRoutes.js";
+import review from "./routes/reviewRoute.js";
 import user from "./routes/userRoutes.js";
 
 app.use("/api/v1", city);
