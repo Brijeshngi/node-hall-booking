@@ -1,5 +1,7 @@
 import express from "express";
 import { config } from "dotenv";
+import ErrorMiddleware from "./middleware/Error.js";
+import cookieParser from "cookie-parser";
 
 const app = express();
 config({
@@ -12,7 +14,7 @@ app.use(
     extended: true,
   })
 );
-
+app.use(cookieParser());
 // importing routes and using
 import city from "./routes/cityRoute.js";
 import hall from "./routes/hallRoute.js";
@@ -27,3 +29,5 @@ app.use("/api/v1", review);
 app.use("/api/v1", user);
 
 export default app;
+
+app.use(ErrorMiddleware);
