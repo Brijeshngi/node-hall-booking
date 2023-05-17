@@ -1,17 +1,18 @@
 import mongoose from "mongoose";
 
-const schema = mongoose.Schema({
+const schema = new mongoose.Schema({
   user_name: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
   },
   hall_name: {
-    hallId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Hall",
-    },
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Hall",
   },
   ratings: {
     type: String,
+    enum: ["1", "2", "3", "4", "5"],
+    default: 0,
   },
   comments: {
     type: String,
