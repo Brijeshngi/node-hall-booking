@@ -1,4 +1,4 @@
-import { Reviews } from "../models/Reviews";
+import { Reviews } from "../models/Reviews.js";
 import "express-async-errors";
 import ErrorHandler from "../utils/errorHandler.js";
 
@@ -53,9 +53,9 @@ export const updateReview = async (req, res, next) => {
   const hallData = await Reviews.findById(id);
   const { ratings, comments } = req.body;
 
-  (hallData.ratings = ratings),
-    (hallData.comments = comments),
-    await hallData.save();
+  hallData.ratings = ratings;
+  hallData.comments = comments;
+  await hallData.save();
 
   res.status(200).json({
     success: true,

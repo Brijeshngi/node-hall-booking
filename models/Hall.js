@@ -41,6 +41,7 @@ const schema = new mongoose.Schema({
     enum: ["booked", "vacant"],
     default: "vacant",
   },
+  booking: [mongoose.Schema.Types.ObjectId],
 
   hall: {
     type: String,
@@ -49,7 +50,6 @@ const schema = new mongoose.Schema({
   },
   hall_rate: {
     type: String,
-    required: true,
   },
 });
 
